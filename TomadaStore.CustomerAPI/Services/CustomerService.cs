@@ -24,21 +24,38 @@ namespace TomadaStore.CustomerAPI.Services
         {
             try
             {
-                await _customerRepository.InsertCustomerAsync(customer);
+                var newCustomer = new Customer(customer.FirstName, customer.LastName, customer.Email, customer.PhoneNumber);
+                await _customerRepository.InsertCustomerAsync(newCustomer);
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        public async Task<List<Customer>> GetAllCustomersAsync()
+        public async Task<List<CustomerResponseDTO>> GetAllCustomersAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _customerRepository.GetAllCustomersAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
         }
 
-        public async Task<Customer> GetCustomerByIdAsync(int id)
+        public async Task<CustomerResponseDTO?> GetCustomerByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _customerRepository.GetCustomerByIdAsync(id);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
         }
 
         

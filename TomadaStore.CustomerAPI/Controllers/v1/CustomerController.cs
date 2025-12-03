@@ -39,7 +39,43 @@ namespace TomadaStore.CustomerAPI.Controllers.v1
                 _logger.LogError(ex, "Error ocurred while creating a new customer." + ex.Message);
                 return Problem(ex.Message);
             }
-            
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<CustomerResponseDTO>>> GetAllCustomersAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Catching all customers...");
+                var customers = await _customerService.GetAllCustomersAsync();
+
+                return Ok(customers);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error ocurred while creating a new customer." + ex.Message);
+                return Problem(ex.Message);
+            }
+
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CustomerResponseDTO?>> GetCustomerByIdAsync(int id)
+        {
+            try
+            {
+                _logger.LogInformation("Catching customer by ID...");
+                var customer = await _customerService.GetCustomerByIdAsync(id);
+
+                return Ok(customer);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error ocurred while creating a new customer." + ex.Message);
+                return Problem(ex.Message);
+            }
+
         }
 
     }

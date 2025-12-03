@@ -12,11 +12,14 @@
 
         public string? PhoneNumber { get; private set; }
 
+        public bool Status { get; private set; }
+
         public Customer(string firstName, string lastName, string email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
+            this.Status = true;
         }
 
         public Customer(string firstName, string lastName, 
