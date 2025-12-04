@@ -58,6 +58,18 @@ namespace TomadaStore.CustomerAPI.Services
             }
         }
 
-        
+        public async Task UpdateCustomerStatusByIdAsync(int id)
+        {
+            try
+            {
+                await _customerRepository.UpdateCustomerStatusByIdAsync(id);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
+
     }
 }

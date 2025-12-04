@@ -87,5 +87,30 @@ namespace TomadaStore.CustomerAPI.Repositories
                 throw new Exception(ex.StackTrace);
             }
         }
+
+        public async Task UpdateCustomerStatusByIdAsync(int id)
+        {
+            try
+            {
+                var sqlUpdate = @"UPDATE Customers
+                                  SET Status = CASE 
+                                               WHEN Status = 1 THEN 0 
+                                               ELSE 1 
+                                               END
+                                  WHERE CustomerId = @CustomerId";
+
+                await _connection.QueryFirstOrDefaultAsync<CustomerResponseDTO>(sqlUpdate, new { CustomerId = id });
+            }
+            catch (SqlException sqlEx)
+            {
+                _logger.LogError($"SQL Error insert customer: {sqlEx.Message}");
+                throw new Exception(sqlEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error inserting customer: {ex.Message}");
+                throw new Exception(ex.StackTrace);
+            }
+        }
     }
 }

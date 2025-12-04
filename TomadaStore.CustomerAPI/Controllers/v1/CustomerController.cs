@@ -78,5 +78,23 @@ namespace TomadaStore.CustomerAPI.Controllers.v1
 
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> UpdateCustomerStatusByIdAsync(int id)
+        {
+            try
+            {
+                _logger.LogInformation("Switching customer status by ID...");
+                await _customerService.UpdateCustomerStatusByIdAsync(id);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error ocurred while creating a new customer." + ex.Message);
+                return Problem(ex.Message);
+            }
+
+        }
+
     }
 }

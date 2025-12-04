@@ -11,5 +11,7 @@ namespace TomadaStore.CustomerAPI.Services.Interfaces
         Task<List<CustomerResponseDTO>> GetAllCustomersAsync();
 
         Task<CustomerResponseDTO?> GetCustomerByIdAsync(int id);
+
+        Task UpdateCustomerStatusByIdAsync(int id);
     }
 }
