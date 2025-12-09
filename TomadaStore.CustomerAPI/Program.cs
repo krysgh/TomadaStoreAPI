@@ -1,6 +1,6 @@
 using TomadaStore.CustomerAPI.Data;
-using TomadaStore.CustomerAPI.Repositories;
-using TomadaStore.CustomerAPI.Repositories.Interfaces;
+using TomadaStore.CustomerAPI.Repository;
+using TomadaStore.CustomerAPI.Repository.Interfaces;
 using TomadaStore.CustomerAPI.Services;
 using TomadaStore.CustomerAPI.Services.Interfaces;
 
@@ -10,8 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddSingleton<ConnectionDB>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+builder .Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder .Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 

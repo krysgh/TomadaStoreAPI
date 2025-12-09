@@ -1,4 +1,4 @@
-@TomadaStore.CustomerAPI_HostAddress = http://localhost:5282
+@TomadaStore.CustomerAPI_HostAddress = http://localhost:5055
 
 GET {{TomadaStore.CustomerAPI_HostAddress}}/weatherforecast/
 Accept: application/json

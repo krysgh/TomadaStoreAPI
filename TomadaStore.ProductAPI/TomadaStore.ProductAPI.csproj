@@ -4,7 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>8cb25809-7abf-4137-b976-b3d9f6f208df</UserSecretsId>
+    <UserSecretsId>c0227a68-463d-4a32-a3a3-dc32f4de5560</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\TomadaStore\TomadaStore.Models.csproj" />
   </ItemGroup>
 
 </Project>

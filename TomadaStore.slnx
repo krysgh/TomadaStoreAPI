@@ -1,6 +1,7 @@
 <Solution>
+  <Project Path="TomadaStore.Consumer/TomadaStore.Consumer.csproj" Id="d74a4bc8-9729-46d2-9da4-8e2f21039596" />
   <Project Path="TomadaStore.CustomerAPI/TomadaStore.CustomerAPI.csproj" />
   <Project Path="TomadaStore.ProductAPI/TomadaStore.ProductAPI.csproj" />
-  <Project Path="TomadaStore.SaleAPI/TomadaStore.SaleAPI.csproj" />
+  <Project Path="TomadaStore.SalesAPI/TomadaStore.SalesAPI.csproj" />
   <Project Path="TomadaStore/TomadaStore.Models.csproj" />
 </Solution>

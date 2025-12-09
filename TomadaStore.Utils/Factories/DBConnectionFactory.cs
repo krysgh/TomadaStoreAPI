@@ -1,15 +1,14 @@
-﻿using System.Data;
-using TomadaStore.Utils.Interfaces;
+﻿using TomadaStore.Utils.Factories.Interfaces;
 
 namespace TomadaStore.Utils.Factories
 {
-    public abstract class DBConnectionFactory
+    public abstract class DbConnectionFactory
     {
-        public abstract IDBConnection CreateConnection();
+        public abstract IDBConnection CreateDBConnection();
 
-        public string GetDBConnection()
+        public string GetConnectionString()
         {
-            var dbConnection = CreateConnection();
+            var dbConnection = CreateDBConnection();
             return dbConnection.ConnectionString();
         }
     }

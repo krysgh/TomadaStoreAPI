@@ -1,30 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TomadaStore.Models.Models
 {
     public class Product
     {
-        public string Id { get; private set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId Id { get; private set; }
 
+        [BsonElement("name")]
         public string Name { get; private set; }
 
+        [BsonElement("description")]
         public string Description { get; private set; }
 
+        [BsonElement("price")]
         public decimal Price { get; private set; }
 
+        [BsonElement("category")]
         public Category Category { get; private set; }
 
-        public Product(string name, string description, decimal price, Category category)
+        public Product() { }
+
+        public Product(
+            string name,
+            string description,
+            decimal price,
+            Category category
+        )
         {
-            this.Name = name;
-            this.Description = description;
-            this.Price = price;
-            this.Category = category;
+            Id = ObjectId.GenerateNewId();
+            Name = name;
+            Description = description;
+            Price = price;
+            Category = category;
         }
     }
 }
